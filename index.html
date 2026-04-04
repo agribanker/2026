@@ -4,25 +4,28 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Tìm kiếm câu hỏi & hiển thị đáp án</title>
-<script type="text/javascript" src="/86AAF7CD-A199-463A-BEEF-AEE7400B3F0D/main.js?attr=xWcqkbUDvwHwhRZi6mfjEn2gcOYJYUYl4YZaQX9X-UXgqChyLwe--3YFhpXFEwYGD-_n3tHSp7Fij-FREA27OND1XGSKP5qaTlKfq9q65cAAC8mhAFkYSQx51-lryy5_4Jsa2BFCXSAfCJ7bceX-lOY02k3lJJLVIF_PLMkz5CtylzM1lR6ooc7nxByLbIUfb-6swa3Oe2Wwzafzo4_br_LQ28M0XsBTFn3gPhczYGmw6PqHaICC0nBfAaOoOUmEBf2Qunn04bqVrwE7b1LyD_B-Yn1MO_yoDTxdIVpckVbkPGeRPGBuPfCL0UGWJhAZSwqRkiHi3SvPs8ajD5caoYonNqcwFFme7_tY4Qf1DbM3tvMa2bF8A-l41xcuan4wOV7QCSSI3yo69TFbnX4XOVjilR8856cPI1pqPa2HJOBeVGWSIZGNQedjp6rn8NiyJYfEaWqnn82tmmdBqUvvveQPzcoFXHz5asuUL5an2PORWu0_piDJCDRtBwmJibcEXmYJPW6evNKMoPVH_fUys3sxptnaCKDQ7ZAwta7Ru3r2nwP-1gRoXU6CfTJHClEYOv_Z-PL-XE82Rw4Bk4HeC0C9lYsVxKICyisrgjOVmVs8Q-rO-BbnIxVvEzslhBToqfSpRUIMaQf3IV_HGwKwLwSTL9TadsbsFJeIBVCrlBqN_9D_CETg2lLMdDwhruuQXEzqhJZtIEY9vNxx2WPpxlZ8ULrvuX3lc-rHkRIUu3qhX8dK_5_a59AkahDDuEw-IZg_VHhZmZkL4nEURT2LzPEIYHrDgb0iMtabs50RErJiTsdcDYcedlU9c2KM-5GnqMOtHMrJT3C57z-eiB-MtD--msItT4dvtnHFBAp5U9jqXsfbyDeNwSImEbCr422QB7qb2sPqDnu9HGS8OounVmKmGG7356IsOCDHxRlkAhaH9muOeCP0xHAlrSfZVOmQFwh8LMrx7eNd4Qsn8dXmTQjBF-HmRbrxvQv4e2sy4C29MBBTcj9IMSAaiZeCt6OKp2Kp01S4MspWtFuCELwxzoR-C4nMvhSUhukcl9d2yMtw59gn7itABnBQxHMP7_NYmJC9WuMJXOpzdl-yA435XEZE5844mGLfiODsp0oOwkysLhCjZltOUB6kBxLxiUsJ9ZsmuUnxjSKmB-hGaq29llMbHl6gww8sgE6N9SWB5E3-Cus2ixAlr_Xj5uitO3gLZKqdQiEZgGcMuNkhUGgkUM5oRbaiVBo59A2DwOhks2SvLAHeC5s1fEVf62wYsI2yN8Xe-cCnZ4XLi2f8K5ZGwoCDnhQCukD7KIMYAdPo3uyCea-bvzyDh944Uc6Dtkb92KbDxVs24kxrJKUQjuVeWTKJisqdhYIqblw7SCFPjIL-PMSddqCaHs-7nFlN0cuqp3K_mB-84Iwv8uANATdc2iCM1qj_KDtMiIRwIzVn_yprDoKM9SE7Yfa8jco2ItdOrGGy9X1tPOt7xz3bDGOj76Qi1UVvmF2KgrvSx2H1ppEnJp648He6Zk06GqunTlNIC3U9nY7mbpaZcrU1KWJxfMninpNrRJoBaBvKdpP3p2jYzNHQExvwH70jfPL9D6UYklja-d50ChodlTBWAKvohFw8THDNZJoNUjJ-V1_enNL4-DpWvbaxMaxuek7UT7jjllB_Z_s3JYEPSOWfXtLoRA" nonce="a1d7a0730f3a84561f07d3784efd966c" charset="UTF-8"></script><style>
+<style>
   :root {
     --bg: #0f172a;
     --card: #111827;
     --muted: #94a3b8;
     --text: #e5e7eb;
-    --accent: #22d3ee;
-    --correct-bg: #fff3a3; /* nhẹ hơn */
+    --correct-bg: #fff3a3;
     --border: rgba(255,255,255,.18);
     --border-strong: rgba(255,255,255,.26);
   }
   * { box-sizing: border-box; }
   body {
-    margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     background: radial-gradient(1200px 800px at 10% 0%, #111827 0%, #0b1023 50%, #070a14 100%);
     color: var(--text);
   }
   header {
-    padding: 16px; position: sticky; top: 0; backdrop-filter: blur(6px);
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(6px);
     background: linear-gradient(180deg, rgba(7,10,20,.92), rgba(7,10,20,.6), rgba(7,10,20,0));
     border-bottom: 1px solid rgba(255,255,255,.06);
     z-index: 5;
@@ -30,15 +33,31 @@
   h1 { margin: 0 0 2px; font-size: 18px; }
   .sub { color: var(--muted); font-size: 12px; }
   .bar {
-    display: grid; grid-template-columns: 1fr auto auto auto; gap: 8px; margin-top: 10px;
+    display: grid;
+    grid-template-columns: 190px 1fr auto auto auto;
+    gap: 8px;
+    margin-top: 10px;
   }
-  input[type="text"] {
-    width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border);
-    background: rgba(17,24,39,.55); color: var(--text); outline: none; font-size: 14px;
+  select, input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: rgba(17,24,39,.55);
+    color: var(--text);
+    outline: none;
+    font-size: 14px;
   }
   button {
-    padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: #0b1223;
-    color: var(--text); cursor: pointer; font-weight: 600; letter-spacing: .2px; font-size: 13px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #0b1223;
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: .2px;
+    font-size: 13px;
   }
   button:hover { border-color: var(--border-strong); transform: translateY(-1px); }
   .hint { margin-top: 6px; color: var(--muted); font-size: 12px; }
@@ -50,16 +69,15 @@
     gap: 10px;
   }
   @media (max-width: 1100px){ .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 700px){ .grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px){ .bar { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px){ .grid { grid-template-columns: 1fr; } .bar { grid-template-columns: 1fr; } }
   .card {
     background: rgba(17,24,39,.35);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 10px;
   }
-  .q {
-    font-size: 14px; line-height: 1.35; margin: 0 0 8px;
-  }
+  .q { font-size: 14px; line-height: 1.35; margin: 0 0 8px; }
   .opts { display: grid; gap: 6px; }
   .opt {
     background: transparent;
@@ -78,31 +96,40 @@
   mark { background: rgba(34, 211, 238, .25); padding: 0 .1em; border-radius: 3px; }
   .badge { font-size: 11px; color: var(--muted); margin-right: 6px; }
   .topic-badge {
-  display: inline-block;
-  margin-bottom: 8px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: linear-gradient(135deg,#22d3ee33,#0ea5e933);
-  color: #67e8f9;
-  border: 1px solid #22d3ee55;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .3px;
-}
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(34, 211, 238, .12);
+    color: #67e8f9;
+    border: 1px solid rgba(34, 211, 238, .28);
+    font-size: 12px;
+    font-weight: 600;
+  }
 </style>
 </head>
 <body>
   <header>
     <h1>Tìm kiếm câu hỏi nhanh</h1>
-    <div class="sub">Nhập từ khóa (không dấu cũng được). Dùng dấu <b>*</b> để giữ thứ tự từ, ví dụ: <code>Hạn mức giao dịch*Giao dịch viên</code>.</div>
+    <div class="sub">Chọn 1 trong 2 chế độ: <b>Chính xác (*)</b> hoặc <b>Chữ cái đầu </b>.</div>
+
     <div class="bar">
-      <input id="q" type="text" placeholder="Nhập 2–3 từ khóa... (vd: 'toi thieu*mo bang')" />
-      <button id="btnRun">Bắt đầu</button>
+      <select id="searchMode">
+        <option value="exact">Chính xác (*)</option>
+        <option value="acronym">Chữ cái đầu</option>
+      </select>
+
+      <input id="q" type="text" placeholder="Nhập 2–3 từ khóa... (vd: 'han muc giao dich*giao dich vien')" />
+      <button id="btnRun">Tìm</button>
       <button id="btnClear">Xóa</button>
       <button id="btnAll">Hiện tất cả</button>
     </div>
-    <div class="hint">Hiển thị dạng lưới 3 cột, mỗi đáp án là 1 border, chữ nhỏ gọn — đáp án đúng bôi vàng nhẹ.</div>
+
+    <div class="hint" id="searchHint">
+      Gợi ý: dùng dấu * để giữ thứ tự từ, ví dụ: <code>Hạn mức giao dịch*Giao dịch viên</code>
+    </div>
   </header>
+
   <main>
     <div class="stats" id="stats"></div>
     <div class="grid" id="results"></div>
@@ -121,17 +148,43 @@
     .replace(/\s+/g, " ")
     .trim();
 
-  const NQ = DATA.map(r => norm(r.question));
+  function getAcronym(str = "") {
+    return norm(str)
+      .split(" ")
+      .filter(Boolean)
+      .map(w => w[0])
+      .join("");
+  }
 
-  function search(query) {
+  function highlight(text, query, mode) {
+    if (!text) return "";
+    if (mode === "acronym") return text;
+
+    const q = norm(query);
+    if (!q) return text;
+
+    const parts = q.split("*").map(s => s.trim()).filter(Boolean).sort((a,b)=>b.length-a.length);
+    if (!parts.length) return text;
+
+    let html = text;
+    for (const p of parts) {
+      const re = new RegExp("(" + p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
+      html = html.replace(re, "<mark>$1</mark>");
+    }
+    return html;
+  }
+
+  function searchExact(query) {
     const results = [];
     const q = norm(query);
     if (!q) return results;
+
     const parts = q.split("*").map(s => s.trim()).filter(Boolean);
 
     for (let i = 0; i < DATA.length; i++) {
-      const qn = NQ[i];
+      const qn = norm(DATA[i].question);
       let ok = true;
+
       if (parts.length === 0) {
         ok = qn.includes(q);
       } else if (parts.length === 1) {
@@ -140,91 +193,126 @@
         let pos = -1;
         for (const p of parts) {
           pos = qn.indexOf(p, pos + 1);
-          if (pos === -1) { ok = false; break; }
+          if (pos === -1) {
+            ok = false;
+            break;
+          }
         }
       }
+
       if (ok) results.push(i);
     }
+
     return results;
   }
 
-  function highlight(text, query) {
+  function searchAcronym(query) {
+    const results = [];
     const q = norm(query);
-    if (!q) return text;
-    const parts = q.split("*").map(s => s.trim()).filter(Boolean).sort((a,b)=>b.length-a.length);
-    if (parts.length === 0) return text;
-    let html = text;
-    for (const p of parts) {
-      if (!p) continue;
-      const re = new RegExp("(" + p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
-      html = html.replace(re, "<mark>$1</mark>");
+    if (!q) return results;
+
+    for (let i = 0; i < DATA.length; i++) {
+      const acronym = getAcronym(DATA[i].question);
+      if (acronym.includes(q)) results.push(i);
     }
-    return html;
+
+    return results;
   }
 
-  function render(listIdx, query) {
+  function render(listIdx, query, mode) {
     const wrap = document.getElementById("results");
     const stats = document.getElementById("stats");
     wrap.innerHTML = "";
-    stats.textContent = listIdx.length ? `Tìm thấy ${listIdx.length} câu hỏi` : "Không có kết quả phù hợp.";
+
+    stats.textContent = listIdx.length
+      ? `Tìm thấy ${listIdx.length} / ${DATA.length} câu`
+      : "Không có kết quả phù hợp.";
 
     const frag = document.createDocumentFragment();
+
     listIdx.forEach(i => {
       const r = DATA[i];
       const card = document.createElement("div");
       card.className = "card";
 
       const topic = document.createElement("div");
-	  topic.className = "topic-badge";
+      topic.className = "topic-badge";
       topic.textContent = r.topic || "Chưa phân loại";
       card.appendChild(topic);
 
-	  const q = document.createElement("div");
-	  q.className = "q";
-	  q.innerHTML = highlight(r.question, query);
-	  card.appendChild(q);
+      const q = document.createElement("div");
+      q.className = "q";
+      q.innerHTML = highlight(r.question, query, mode);
+      card.appendChild(q);
 
       const opts = document.createElement("div");
       opts.className = "opts";
 
-      r.options.forEach((opt, idx) => {
+      (r.options || []).forEach((opt, idx) => {
+        if (String(opt).trim() === "") return;
         const o = document.createElement("div");
         o.className = "opt" + (r.correct === idx ? " correct" : "");
-        const label = ["A","B","C","D"][idx];
-        o.innerHTML = `<span class="badge">${label}.</span> ${
-          (opt || "").replace(/\n/g,"<br>")
-        }`;
+        const label = ["A","B","C","D"][idx] || "";
+        o.innerHTML = `<span class="badge">${label}.</span> ${(opt || "").replace(/\n/g,"<br>")}`;
         opts.appendChild(o);
       });
 
       card.appendChild(opts);
       frag.appendChild(card);
     });
+
     wrap.appendChild(frag);
   }
 
+  function updateSearchUI() {
+    const mode = document.getElementById("searchMode").value;
+    const qInput = document.getElementById("q");
+    const hint = document.getElementById("searchHint");
+
+    if (mode === "exact") {
+      qInput.placeholder = "Nhập 2–3 từ khóa... (vd: 'toi thieu*mo bang')";
+      hint.innerHTML = 'Gợi ý: dùng dấu * để giữ thứ tự từ, ví dụ: <code>Hạn mức giao dịch*Giao dịch viên</code>';
+    } else {
+      qInput.placeholder = "Nhập chữ cái đầu... (vd: 'hmgdnv' hoặc 'tktgtkthta')";
+      hint.innerHTML = 'Gợi ý: viết tắt theo chữ cái đầu, ví dụ:Hạn mức giao dịch nghiệp vụ gõ <code>hmgdnv</code>';
+    }
+  }
+
   function run() {
-    const input = document.getElementById("q");
-    const query = input.value;
-    const idxs = search(query);
-    render(idxs, query);
+    const query = document.getElementById("q").value.trim();
+    const mode = document.getElementById("searchMode").value;
+
+    if (!query) {
+      document.getElementById("results").innerHTML = "";
+      document.getElementById("stats").textContent = "";
+      return;
+    }
+
+    const idxs = mode === "exact" ? searchExact(query) : searchAcronym(query);
+    render(idxs, query, mode);
   }
 
   document.getElementById("btnRun").addEventListener("click", run);
+
   document.getElementById("btnClear").addEventListener("click", () => {
     document.getElementById("q").value = "";
     document.getElementById("q").focus();
     document.getElementById("results").innerHTML = "";
     document.getElementById("stats").textContent = "";
   });
-  document.getElementById("btnAll").addEventListener("click", () => { 
-    const idxs = DATA.map((_,i)=>i);
-    render(idxs, "");
+
+  document.getElementById("btnAll").addEventListener("click", () => {
+    const idxs = DATA.map((_, i) => i);
+    render(idxs, "", document.getElementById("searchMode").value);
   });
+
   document.getElementById("q").addEventListener("keydown", (e) => {
     if (e.key === "Enter") run();
   });
 
+  document.getElementById("searchMode").addEventListener("change", updateSearchUI);
+
+  updateSearchUI();
   document.getElementById("q").focus();
 </script>
 </body>
