@@ -1538,6 +1538,11 @@
     currentMode = mode;
     currentRenderCount = 0;
 
+    if (currentResults.length === 0) {
+      updateStatsAndSentinel();
+      return;
+    }
+
     renderNextBatch();
   }
 
