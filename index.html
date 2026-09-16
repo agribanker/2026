@@ -169,19 +169,26 @@
     align-items: center;
   }
   .search-input-wrap input[type="text"] {
-    padding-right: 44px;
+    padding-right: 50px !important;
+    text-overflow: ellipsis;
+  }
+  .search-input-wrap input[type="text"]::placeholder {
+    color: #64748b;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
   .btn-mic {
     position: absolute;
-    right: 7px;
+    right: 8px;
     top: 50%;
     transform: translateY(-50%);
     background: transparent;
     border: none;
     outline: none;
     cursor: pointer;
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -239,15 +246,15 @@
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    gap: 10px; 
-    margin-top: 6px; 
+    gap: 12px; 
+    margin-top: 8px; 
     flex-wrap: wrap; 
   }
   .hint { 
     margin-top: 0; 
     color: var(--muted); 
-    font-size: clamp(11px, 2vw, 12px); 
-    line-height: 1.4;
+    font-size: clamp(11.5px, 2vw, 12.5px); 
+    line-height: 1.45;
     flex: 1;
     min-width: 240px;
   }
@@ -258,43 +265,83 @@
     color: #38bdf8;
   }
   .btn-guide-trigger {
-    background: rgba(56, 189, 248, 0.08);
-    border: 1px solid rgba(56, 189, 248, 0.35);
-    color: #38bdf8;
-    padding: 3px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.22) 0%, rgba(56, 189, 248, 0.12) 100%);
+    border: 1.5px solid rgba(56, 189, 248, 0.7);
+    color: #e0f2fe;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    transition: all 0.2s ease;
+    gap: 8px;
+    transition: all 0.25s ease;
     white-space: nowrap;
     flex-shrink: 0;
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.22);
+    animation: guideGlow 3s infinite ease-in-out;
+  }
+  @keyframes guideGlow {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+      border-color: rgba(56, 189, 248, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
+      border-color: #38bdf8;
+    }
   }
   .btn-guide-trigger:hover {
-    background: #38bdf8;
-    color: #0b0f19;
+    background: #0284c7;
+    color: #ffffff;
     border-color: #38bdf8;
     transform: translateY(-1px);
-    box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+    box-shadow: 0 4px 18px rgba(56, 189, 248, 0.45);
+  }
+  .btn-guide-trigger i {
+    color: #38bdf8;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .btn-guide-trigger:hover i {
+    color: #ffffff;
+  }
+  .guide-badge-pill {
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 1px 7px;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
   }
 
   /* Guide Modal Styles */
   .guide-item {
-    margin-bottom: 16px;
-    padding-bottom: 16px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .guide-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
   .guide-title {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 14px;
+    font-size: 14.5px;
     color: #f8fafc;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     flex-wrap: wrap;
+  }
+  .guide-title-text {
+    font-weight: 700;
+    flex: 1;
+    min-width: 200px;
   }
   .guide-num {
     width: 22px;
@@ -315,7 +362,7 @@
     color: #cbd5e1;
     line-height: 1.5;
   }
-  .guide-desc code, .example-line code {
+  .guide-desc code {
     background: rgba(56, 189, 248, 0.15);
     color: #38bdf8;
     padding: 2px 6px;
@@ -323,31 +370,106 @@
     font-weight: 600;
   }
   .guide-example {
-    background: rgba(15, 23, 42, 0.7);
+    background: rgba(15, 23, 42, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 10px;
-    padding: 10px 14px;
+    padding: 10px 12px;
     font-size: 13px;
     color: #e2e8f0;
-  }
-  .example-line {
-    margin: 4px 0;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .example-row {
+    display: flex;
+    align-items: baseline;
     gap: 8px;
     flex-wrap: wrap;
+    line-height: 1.4;
   }
-  .example-line i {
+  .example-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #94a3b8;
+    flex-shrink: 0;
+  }
+  .example-code {
+    background: rgba(56, 189, 248, 0.16);
     color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-weight: 600;
+    font-size: 13px;
+    word-break: break-word;
+  }
+  .example-speech {
+    color: #f1f5f9;
+    font-style: italic;
+    word-break: break-word;
+  }
+  .example-desc {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 12.5px;
+    color: #cbd5e1;
+    padding-left: 2px;
+    line-height: 1.4;
+  }
+  .example-desc i {
     font-size: 11px;
+    flex-shrink: 0;
+  }
+  .example-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 2px 0;
   }
   .guide-tip {
-    margin-top: 6px;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    border-radius: 8px;
     font-size: 12.5px;
-    color: #fbbf24;
+    color: #fef08a;
     display: flex;
-    align-items: center;
-    gap: 6px;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .guide-tip i {
+    color: #fbbf24;
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .guide-tip-content {
+    flex: 1;
+  }
+  .guide-note {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 8px;
+    font-size: 12.5px;
+    color: #bae6fd;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .guide-note i {
+    color: #38bdf8;
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .guide-note-content {
+    flex: 1;
   }
   .badge-recommended {
     background: rgba(16, 185, 129, 0.2);
@@ -357,6 +479,10 @@
     padding: 1px 7px;
     border-radius: 999px;
     font-weight: 700;
+    white-space: nowrap !important;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
   }
   .badge-speed {
     background: rgba(245, 158, 11, 0.2);
@@ -366,6 +492,10 @@
     padding: 1px 7px;
     border-radius: 999px;
     font-weight: 700;
+    white-space: nowrap !important;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
   }
   .badge-mic {
     background: rgba(244, 63, 94, 0.2);
@@ -375,6 +505,35 @@
     padding: 1px 7px;
     border-radius: 999px;
     font-weight: 700;
+    white-space: nowrap !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .guide-util-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .guide-util-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+  .guide-util-badge {
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 11.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .guide-util-text {
+    color: #cbd5e1;
+    flex: 1;
   }
 
   /* =========================================================================
@@ -1132,9 +1291,10 @@
     }
     #q {
       width: 100%;
-      font-size: 15px;
-      padding: 10px 42px 10px 12px;
+      font-size: 14.5px;
+      padding: 10px 50px 10px 12px !important;
       min-height: 44px;
+      text-overflow: ellipsis;
     }
     #btnRun {
       grid-column: span 2;
@@ -1153,6 +1313,40 @@
       min-height: 42px;
       padding: 9px 4px;
       font-size: 12.5px;
+    }
+
+    .hint-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+    }
+    .btn-guide-trigger {
+      width: 100%;
+      justify-content: center;
+      padding: 10px 16px;
+      font-size: 13.5px;
+      min-height: 42px;
+      border-radius: 12px;
+    }
+    .modal-overlay {
+      padding: 10px;
+    }
+    .modal-box {
+      border-radius: 16px;
+      max-height: 90vh;
+      max-height: 90dvh;
+    }
+    .modal-header {
+      padding: 12px 14px;
+    }
+    .modal-header h3 {
+      font-size: 13.5px;
+    }
+    .modal-body {
+      padding: 12px 14px;
+    }
+    .modal-footer {
+      padding: 10px 14px;
     }
 
     /* Exam Room Mobile Sticky Controls */
@@ -1263,7 +1457,7 @@
         </select>
 
         <div class="search-input-wrap">
-          <input id="q" type="text" placeholder="Nhập từ khóa cần tìm... (vd: 'han muc, giao dich vien')" autocomplete="off" />
+          <input id="q" type="text" placeholder="Nhập từ khóa... (vd: 'han muc, vien')" autocomplete="off" />
           <button type="button" id="btnMic" class="btn-mic" title="Tìm kiếm bằng giọng nói" aria-label="Tìm kiếm bằng giọng nói">
             <i class="fa-solid fa-microphone"></i>
           </button>
@@ -1278,7 +1472,9 @@
           Gợi ý: dùng dấu phẩy để giữ thứ tự từ, ví dụ: <code>Hạn mức giao dịch, Giao dịch viên</code>
         </div>
         <button type="button" class="btn-guide-trigger" onclick="openSearchGuideModal()" title="Xem hướng dẫn chi tiết cách tra cứu">
-          <i class="fa-solid fa-circle-question"></i> Hướng dẫn tra cứu
+          <i class="fa-solid fa-book-open"></i>
+          <span>Hướng dẫn tra cứu</span>
+          <span class="guide-badge-pill">Mẹo hay</span>
         </button>
       </div>
     </div>
@@ -1494,65 +1690,131 @@
 
   <!-- Modal Hướng Dẫn Tra Cứu -->
   <div class="modal-overlay" id="searchGuideModal" onclick="if(event.target===this) closeSearchGuideModal()">
-    <div class="modal-box" style="max-width: 680px;">
+    <div class="modal-box" style="max-width: 650px;">
       <div class="modal-header">
         <h3><i class="fa-solid fa-book-open" style="color:#38bdf8;"></i> HƯỚNG DẪN TRA CỨU ĐÁP ÁN NHANH</h3>
         <button class="modal-close" onclick="closeSearchGuideModal()" title="Đóng">&times;</button>
       </div>
-      <div class="modal-body" style="padding: 18px 20px; line-height: 1.6;">
+      <div class="modal-body">
         
+        <!-- Cách 1 -->
         <div class="guide-item">
           <div class="guide-title">
-            <span class="guide-num">1</span> 
-            <strong>Cách 1: Tìm theo thứ tự từ bằng dấu phẩy <code>,</code> <span class="badge-recommended">Khuyên dùng</span></strong>
+            <span class="guide-num">1</span>
+            <div class="guide-title-text">Cách 1: Tìm theo thứ tự từ bằng dấu phẩy (,)</div>
+            <span class="badge-recommended">Khuyên dùng</span>
           </div>
-          <p class="guide-desc">Gõ các cụm từ quan trọng ngăn cách bởi <b>dấu phẩy <code>,</code></b>. Hệ thống sẽ lọc chính xác các câu hỏi có chứa các cụm từ này theo đúng thứ tự xuất hiện.</p>
+          <p class="guide-desc">Gõ các cụm từ quan trọng cách nhau bởi <b>dấu phẩy <code>,</code></b>. Hệ thống sẽ lọc chính xác câu hỏi chứa đủ các từ khóa theo đúng thứ tự xuất hiện.</p>
           <div class="guide-example">
-            <div class="example-line"><i class="fa-solid fa-arrow-right"></i> Gõ: <code>hạn mức, giao dịch viên</code> &rarr; Ra ngay câu hỏi hạn mức của GDV.</div>
-            <div class="example-line"><i class="fa-solid fa-arrow-right"></i> Gõ: <code>bảo lãnh, nghĩa vụ, dự án</code> &rarr; Lọc câu chứa đủ 3 cụm từ trên.</div>
+            <div class="example-row">
+              <span class="example-label">Nhập:</span>
+              <span class="example-code">hạn mức, giao dịch viên</span>
+            </div>
+            <div class="example-desc">
+              <i class="fa-solid fa-circle-check" style="color:#38bdf8;"></i> Lọc ngay các câu chứa cả "hạn mức" và "giao dịch viên"
+            </div>
+            <div class="example-divider"></div>
+            <div class="example-row">
+              <span class="example-label">Nhập:</span>
+              <span class="example-code">bảo lãnh, nghĩa vụ, dự án</span>
+            </div>
+            <div class="example-desc">
+              <i class="fa-solid fa-circle-check" style="color:#38bdf8;"></i> Lọc câu chứa đủ 3 cụm từ trên theo đúng thứ tự
+            </div>
           </div>
-          <div class="guide-tip"><i class="fa-solid fa-lightbulb"></i> <b>Mẹo:</b> Hỗ trợ gõ tiếng Việt <b>có dấu</b> hoặc <b>không dấu</b> đều tìm được (ví dụ: <code>tai san, the chap</code>).</div>
+          <div class="guide-tip">
+            <i class="fa-solid fa-lightbulb"></i>
+            <div class="guide-tip-content">
+              <b>Mẹo:</b> Gõ tiếng Việt <b>có dấu</b> hoặc <b>không dấu</b> đều tìm được (ví dụ: <code>tai san, the chap</code>).
+            </div>
+          </div>
         </div>
 
+        <!-- Cách 2 -->
         <div class="guide-item">
           <div class="guide-title">
-            <span class="guide-num">2</span> 
-            <strong>Cách 2: Tìm bằng Chữ Cái Đầu <span class="badge-speed">Siêu tốc</span></strong>
+            <span class="guide-num">2</span>
+            <div class="guide-title-text">Cách 2: Tìm bằng Chữ Cái Đầu</div>
+            <span class="badge-speed">Siêu tốc</span>
           </div>
-          <p class="guide-desc">Chuyển chế độ sang <b>"Chữ cái đầu"</b>, sau đó chỉ cần gõ các chữ cái đầu tiên của câu hỏi cần tìm:</p>
+          <p class="guide-desc">Chuyển chế độ sang <b>"Chữ cái đầu"</b> và chỉ cần gõ các chữ cái đầu tiên của câu hỏi:</p>
           <div class="guide-example">
-            <div class="example-line"><i class="fa-solid fa-arrow-right"></i> Câu: <i>"<b>H</b>ạn <b>m</b>ức <b>g</b>iao <b>d</b>ịch <b>n</b>ghiệp <b>v</b>ụ..."</i> &rarr; Chỉ cần gõ: <code>hmgdnv</code></div>
-            <div class="example-line"><i class="fa-solid fa-arrow-right"></i> Câu: <i>"<b>T</b>ài <b>s</b>ản <b>b</b>ảo <b>đ</b>ảm..."</i> &rarr; Chỉ cần gõ: <code>tsbd</code></div>
+            <div class="example-row">
+              <span class="example-label">Câu hỏi:</span>
+              <span class="example-speech">"<b>H</b>ạn <b>m</b>ức <b>g</b>iao <b>d</b>ịch..."</span>
+            </div>
+            <div class="example-desc">
+              <span class="example-label" style="color:#34d399;">Chỉ gõ:</span>
+              <span class="example-code" style="color:#34d399; border-color:rgba(16,185,129,0.4); background:rgba(16,185,129,0.15);">hmgd</span>
+            </div>
+            <div class="example-divider"></div>
+            <div class="example-row">
+              <span class="example-label">Câu hỏi:</span>
+              <span class="example-speech">"<b>T</b>ài <b>s</b>ản <b>b</b>ảo <b>đ</b>ảm..."</span>
+            </div>
+            <div class="example-desc">
+              <span class="example-label" style="color:#34d399;">Chỉ gõ:</span>
+              <span class="example-code" style="color:#34d399; border-color:rgba(16,185,129,0.4); background:rgba(16,185,129,0.15);">tsbd</span>
+            </div>
           </div>
         </div>
 
+        <!-- Cách 3 -->
         <div class="guide-item">
           <div class="guide-title">
-            <span class="guide-num">3</span> 
-            <strong>Cách 3: Tìm kiếm bằng Giọng Nói <span class="badge-mic"><i class="fa-solid fa-microphone"></i> Micro</span></strong>
+            <span class="guide-num">3</span>
+            <div class="guide-title-text">Cách 3: Tìm kiếm bằng Giọng Nói</div>
+            <span class="badge-mic"><i class="fa-solid fa-microphone"></i> Micro</span>
           </div>
           <p class="guide-desc">Bấm vào biểu tượng <b>🎙️</b> ở mép phải ô tìm kiếm và nói tiếng Việt rõ ràng:</p>
           <div class="guide-example">
-            <div class="example-line"><i class="fa-solid fa-arrow-right"></i> Nói: <i>"Hạn mức giao dịch <b>phẩy</b> giao dịch viên"</i> &rarr; Máy tự điền: <code>Hạn mức giao dịch, giao dịch viên</code> và tự tìm ngay lập tức!</div>
+            <div class="example-row">
+              <span class="example-label">Bạn nói:</span>
+              <span class="example-speech">"Hạn mức giao dịch <b>phẩy</b> giao dịch viên"</span>
+            </div>
+            <div class="example-desc">
+              <span class="example-label" style="color:#38bdf8;">Tự điền:</span>
+              <span class="example-code">Hạn mức giao dịch, giao dịch viên</span>
+            </div>
+            <div class="example-desc" style="color:#94a3b8; margin-top:2px;">
+              <i class="fa-solid fa-bolt" style="color:#f59e0b;"></i> Hệ thống tự động kích hoạt tìm kiếm ngay sau khi bạn dừng nói.
+            </div>
           </div>
-          <div class="guide-tip"><i class="fa-solid fa-circle-info"></i> Bấm lại vào biểu tượng mic màu đỏ để dừng nghe bất kỳ lúc nào.</div>
+          <div class="guide-note">
+            <i class="fa-solid fa-circle-info"></i>
+            <div class="guide-note-content">
+              Bấm lại vào biểu tượng mic màu đỏ để dừng nghe bất kỳ lúc nào.
+            </div>
+          </div>
         </div>
 
-        <div class="guide-item" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+        <!-- Tiện ích khác -->
+        <div class="guide-item">
           <div class="guide-title">
-            <span class="guide-num">4</span> 
-            <strong>Các tiện ích khác</strong>
+            <span class="guide-num">4</span>
+            <div class="guide-title-text">Các tiện ích khác</div>
           </div>
-          <div class="guide-example" style="display:grid; gap:8px;">
-            <div><b style="color:#38bdf8;">Hiện tất cả:</b> Xem toàn bộ 4.103 câu hỏi và lướt đọc ôn tập.</div>
-            <div><b style="color:#f43f5e;">Xóa:</b> Xóa nhanh nội dung ô tìm kiếm để nhập từ khóa mới.</div>
-            <div><b style="color:#10b981;">Phòng thi thử:</b> Bấm tab phía trên để làm đề thi thử 100 câu/45 phút sát đề thi Agribank.</div>
+          <div class="guide-example">
+            <div class="guide-util-list">
+              <div class="guide-util-item">
+                <div class="guide-util-badge" style="background:rgba(56,189,248,0.18); color:#38bdf8; border:1px solid rgba(56,189,248,0.35);">Hiện tất cả</div>
+                <div class="guide-util-text">Xem toàn bộ 4.103 câu hỏi và lướt đọc ôn tập.</div>
+              </div>
+              <div class="guide-util-item">
+                <div class="guide-util-badge" style="background:rgba(244,63,94,0.18); color:#fb7185; border:1px solid rgba(244,63,94,0.35);">Xóa</div>
+                <div class="guide-util-text">Xóa nhanh nội dung ô tìm kiếm để nhập từ khóa mới.</div>
+              </div>
+              <div class="guide-util-item">
+                <div class="guide-util-badge" style="background:rgba(16,185,129,0.18); color:#34d399; border:1px solid rgba(16,185,129,0.35);">Phòng thi thử</div>
+                <div class="guide-util-text">Làm đề thi thử 100 câu / 45 phút sát định dạng thi Agribank.</div>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
       <div class="modal-footer" style="justify-content: flex-end;">
-        <button type="button" class="btn-action" onclick="closeSearchGuideModal()" style="background:#0284c7; color:#fff; border-color:#38bdf8; padding:8px 20px;">
+        <button type="button" class="btn-action" onclick="closeSearchGuideModal()" style="background:#0284c7; color:#fff; border-color:#38bdf8; padding:8px 22px; font-weight:700;">
           <i class="fa-solid fa-check"></i> Đã hiểu
         </button>
       </div>
@@ -1835,12 +2097,17 @@
     const mode = document.getElementById("searchMode").value;
     const qInput = document.getElementById("q");
     const hint = document.getElementById("searchHint");
+    const isMobile = window.innerWidth <= 640;
 
     if (mode === "exact") {
-      qInput.placeholder = "Nhập từ khóa cần tìm... (vd: 'han muc, giao dich vien')";
+      qInput.placeholder = isMobile
+        ? "Nhập từ khóa... (vd: 'han muc, vien')"
+        : "Nhập từ khóa cần tìm... (vd: 'han muc, giao dich vien')";
       hint.innerHTML = 'Gợi ý: dùng dấu phẩy để giữ thứ tự từ, ví dụ: <code>Hạn mức giao dịch, Giao dịch viên</code>';
     } else {
-      qInput.placeholder = "Nhập chữ cái đầu... (vd: 'hmgdnv' hoặc 'tktgtkthta')";
+      qInput.placeholder = isMobile
+        ? "Nhập chữ cái đầu... (vd: 'hmgdnv')"
+        : "Nhập chữ cái đầu... (vd: 'hmgdnv' hoặc 'tsbd')";
       hint.innerHTML = 'Gợi ý: viết tắt theo chữ cái đầu, ví dụ: Hạn mức giao dịch nghiệp vụ gõ <code>hmgdnv</code>';
     }
   }
@@ -1903,6 +2170,7 @@
   });
 
   updateSearchUI();
+  window.addEventListener("resize", updateSearchUI);
 
   // Đóng modal khi nhấn phím Escape
   window.addEventListener("keydown", (e) => {
